@@ -1,6 +1,5 @@
 import math
 import nltk
-from nltk.corpus import stopwords
 # function for creating separate docs for positive and negative
 def create_doc(data):
     pos_write = open("positive_new.txt","w")
@@ -149,30 +148,3 @@ def multinomial_naive_bayes(data,test):
     #print(accuracy)
     return accuracy
 #multinomial_naive_bayes("train.txt","test.txt")
-        
-        
-        
-    
-    
-
-
-        
-        
-            
-        
-    
-    
-    
-
-    
-    
-    
-
-        
-
-    
-
-
-        
-            
-    

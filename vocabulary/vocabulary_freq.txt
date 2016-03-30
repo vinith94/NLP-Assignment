@@ -1,9 +1,5 @@
 +  :  300
 -  :  250
-a##hole  :  2
-a1  :  1
-a60  :  2
-a89  :  1
 abilities  :  1
 able  :  18
 abnormally  :  1
@@ -702,8 +698,7 @@ damaged  :  1
 damn  :  5
 dangerous  :  1
 dark  :  4
-dat  :  2
-data  :  11
+data  :  13
 date  :  8
 daughter  :  2
 day-to-day  :  1

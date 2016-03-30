@@ -1,5 +1,4 @@
 import math
-from nltk.corpus import stopwords
 
 
 from unigram_training import multinomial_naive_bayes
@@ -46,8 +45,9 @@ while i<=250 and j<=250:
     test_list.close()
 
     accuracy=multinomial_naive_bayes("train.txt","test.txt")
-    #print(accuracy)
+    print(accuracy)
     avg_accuracy.append(accuracy)
     i=i+25
     j=j+25
+print("Average Accuracy")
 print( sum(avg_accuracy)/len(avg_accuracy))

@@ -1,7 +1,5 @@
 +
 -
-a##hole
-a60
 able
 above
 abruptly
@@ -337,7 +335,6 @@ daily
 damage
 damn
 dark
-dat
 data
 date
 daughter
