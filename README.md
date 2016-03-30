@@ -2,11 +2,11 @@
 Text classification using Naive Bayes Classifier
 
 
-\bfGroup Members
+#Group Members
 
-B.Vinith- B120565EC 
+#B.Vinith- B120565EC 
 
-M.K.Akhila- B120682EC\bf
+#M.K.Akhila- B120682EC
 
 
 
