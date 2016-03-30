@@ -8,7 +8,9 @@ B.Vinith- B120565EC
 
 M.K.Akhila- B120682EC
 
-Average Accuracy - 0.946 ( 94.6 % ) 
+
+
+Average Accuracy (Unigram) - 0.946 ( 94.6 % ) 
 
 Iteration-1---->Accuracy - 0.92
 
