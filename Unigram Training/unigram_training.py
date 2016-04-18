@@ -11,7 +11,9 @@ def create_doc(data):
     global class_n
     class_n=0
     for line in fo:
+        
         words = line.split()
+        
         
         if words[0]=='+':
             pos_write.write(line)
@@ -26,91 +28,111 @@ def create_doc(data):
     
     return
 
-
-global vocab
-vocab=[]
 #function for creating vocabulary for the given training data
 def create_vocab(data):
+##    modify_data(data)
+    global vocab
+    vocab=[]
     fo= open(data)
-    words= fo.read()
-    
-    words_voc = nltk.tokenize.word_tokenize(words, 'english')
-    unique_word= set(words_voc)
-    
-    for word in unique_word:
-        freq= words_voc.count(word)
-        if freq>1:
-            vocab.append(word)
+    megadoc=""
+    for line in fo:
+        check=line.split()
+        line = line.replace(check[0],"")
+        megadoc= megadoc+line
+    words= megadoc.split()
+    for i in range(0,len(words)):
+        if words[i] not in vocab:
+        
+           freq= words.count(words[i])
+           if freq>1:
+            vocab.append(words[i])
         
     return vocab
 
-global pos_words
-pos_words=[]
-global pos_count
-pos_count=[]
-global neg_words
-neg_words=[]
-global neg_count
-neg_count=[]
+
+
+
 # for calculating the frequencies of words in + class
 def pos_frequency(data):
+##    modify_data(data)
+    global pos_words
+    pos_words=[]
+    global pos_count
+    pos_count=[]
     pos_write = open(data)
-    temp= pos_write.read()
-    words_pos = nltk.tokenize.word_tokenize(temp, 'english')
-    unique_pos = set(words_pos)
+    megadoc=""
+    for line in pos_write:
+        check=line.split()
+        line=line.replace(check[0],"")
+        megadoc= megadoc+line
+    temp= megadoc.split()
+        
     global total_pos
-    total_pos = len(words_pos)
-    for word in unique_pos:
-        if word in vocab:
-           pos_words.append(word)
-           x= words_pos.count(word)
-           pos_count.append(x)
+    total_pos = len(temp)
+    for i in range(0,len(temp)):
+        if temp[i] in vocab:
+            if temp[i] not in pos_words:
+               pos_words.append(temp[i])
+               x= temp.count(temp[i])
+               pos_count.append(x)
     pos_write.close()
     return total_pos
 # for calculating the frequencies of words in - class
 def neg_frequency(data):
+   
+    global neg_words
+    neg_words=[]
+    global neg_count
+    neg_count=[]
     neg_write = open(data)
-    temp= neg_write.read()
-    words_neg = nltk.tokenize.word_tokenize(temp, 'english')
-    unique_neg = set(words_neg)
+    megadoc=""
+    for line in neg_write:
+        check=line.split()
+        line=line.replace(check[0],"")
+        megadoc= megadoc+line
+    temp= megadoc.split()
+
     global total_neg
-    total_neg = len(words_neg)
-    for word in unique_neg:
-        if word in vocab:
-           neg_words.append(word)
-           x= words_neg.count(word)
-           neg_count.append(x)
+    total_neg = len(temp)
+    for i in range(0,len(temp)):
+        if temp[i] in vocab:
+            if temp[i] not in neg_words:
+       
+               neg_words.append(temp[i])
+               x= temp.count(temp[i])
+               neg_count.append(x)
     neg_write.close()
     return total_neg
 def calc_posprob(sentence):
     prob_p =math.log2(class_p/(class_p+class_n))
     for word in sentence:
-        if word in vocab:
+        
             if word in pos_words:
                 index= pos_words.index(word)
                 count= pos_count[index]
-                prob_1= math.log2(count+1/(total_pos+len(vocab)))
+                prob_1= math.log2((count+1)/(total_pos+len(vocab)))
                 prob_p= prob_p+prob_1 
-        else:
-            prob_1 = math.log2(1/(total_pos+len(vocab)))
-            prob_p= prob_p+prob_1
+            else:
+              prob_1 = math.log2(1/(total_pos+len(vocab)))
+              prob_p= prob_p+prob_1
     return prob_p
 def calc_negprob(sentence):
     prob_n =math.log2(class_n/(class_p+class_n))
     for word in sentence:
-        if word in vocab:
+        
             if word in neg_words:
                 index= neg_words.index(word)
                 count= neg_count[index]
-                prob_1= math.log2(count+1/(total_neg+len(vocab)))
+                prob_1= math.log2((count+1)/(total_neg+len(vocab)))
                 prob_n= prob_n+prob_1 
-        else:
-            prob_1 = math.log2(1/(total_neg+len(vocab)))
-            prob_n= prob_n+prob_1
+            else:
+                prob_1 = math.log2(1/(total_neg+len(vocab)))
+                prob_n= prob_n+prob_1
     return prob_n
 def multinomial_naive_bayes(data,test):
     
     create_doc(data)
+    
     create_vocab(data)
     pos_frequency("positive_new.txt")
     neg_frequency("negative_new.txt")
@@ -122,6 +144,7 @@ def multinomial_naive_bayes(data,test):
     i=1
     for line in test_file:
         sentence = line.split()
+        
         if sentence[0]=='+':
             original = 1
             sentence.remove('+')
@@ -129,7 +152,9 @@ def multinomial_naive_bayes(data,test):
             original =0
             sentence.remove('-')
         pos_prob = calc_posprob(sentence)
+       
         neg_prob = calc_negprob(sentence)
+        
         if pos_prob>neg_prob:
             detected =1
         else:

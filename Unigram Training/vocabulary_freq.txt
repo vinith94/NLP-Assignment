@@ -837,9 +837,9 @@ divine  :  1
 document  :  2
 does  :  40
 does'nt  :  1
+doesn?t  :  1
 doesnot  :  4
 doesnt  :  8
-doesn’t  :  1
 doing  :  9
 dolby  :  1
 don  :  1
@@ -1322,9 +1322,9 @@ hate  :  7
 hatsoff  :  1
 hav  :  5
 havemb  :  1
+haven?t  :  1
 havenot  :  1
 havent  :  2
-haven’t  :  1
 having  :  24
 hd  :  5
 head  :  5
@@ -1406,6 +1406,7 @@ hurts  :  1
 hv  :  1
 hype  :  1
 i-phones  :  1
+i?ve  :  1
 iam  :  25
 ibm  :  1
 icon  :  1
@@ -1525,6 +1526,7 @@ isnot  :  2
 issue  :  42
 issues  :  42
 it's  :  1
+it?s  :  2
 item  :  2
 items  :  1
 itis  :  32
@@ -1534,9 +1536,7 @@ itself  :  20
 itsmah  :  1
 itsmb  :  1
 itwill  :  2
-it’s  :  2
 iwill  :  3
-i’ve  :  1
 jack  :  3
 jammed  :  1
 jamming  :  1
@@ -3275,10 +3275,10 @@ wifi  :  14
 willing  :  1
 win  :  6
 window  :  8
+window?s  :  1
 windowis  :  2
 windows  :  179
 windows-nokia  :  1
-window’s  :  1
 winner  :  1
 wireless  :  1
 wisat  :  1
@@ -3297,10 +3297,10 @@ withrs  :  1
 withstands  :  2
 witnessed  :  2
 woking  :  1
+won?t  :  1
 wonder  :  3
 wonderful  :  7
 wont  :  12
-won’t  :  1
 word  :  9
 word---awesome  :  1
 words  :  3
