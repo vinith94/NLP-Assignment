@@ -68,7 +68,13 @@ def pos_frequency(data):
     temp= megadoc.split()
         
     global total_pos
-    total_pos = len(temp)
+    total_pos=0
+    tem=[]
+    for i in range(0,len(temp)):
+        if temp[i] not in tem:
+            tem.append(temp[i])
+    total_pos = total_pos +len(tem)
+    
     for i in range(0,len(temp)):
         if temp[i] in vocab:
             if temp[i] not in pos_words:
@@ -93,7 +99,13 @@ def neg_frequency(data):
     temp= megadoc.split()
 
     global total_neg
-    total_neg = len(temp)
+    total_neg=0
+
+    tem=[]
+    for i in range(0,len(temp)):
+        if temp[i] not in tem:
+            tem.append(temp[i])
+    total_neg = total_neg+len(tem)
     for i in range(0,len(temp)):
         if temp[i] in vocab:
             if temp[i] not in neg_words:
